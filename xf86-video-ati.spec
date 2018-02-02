@@ -4,7 +4,7 @@
 #
 Name     : xf86-video-ati
 Version  : 7.10.0
-Release  : 4
+Release  : 5
 URL      : https://www.x.org/releases/individual/driver/xf86-video-ati-7.10.0.tar.gz
 Source0  : https://www.x.org/releases/individual/driver/xf86-video-ati-7.10.0.tar.gz
 Summary  : No detailed summary available
