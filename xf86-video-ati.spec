@@ -6,11 +6,11 @@
 #
 Name     : xf86-video-ati
 Version  : 19.0.1
-Release  : 39
+Release  : 40
 URL      : https://www.x.org/releases/individual/driver/xf86-video-ati-19.0.1.tar.gz
 Source0  : https://www.x.org/releases/individual/driver/xf86-video-ati-19.0.1.tar.gz
-Source99 : https://www.x.org/releases/individual/driver/xf86-video-ati-19.0.1.tar.gz.sig
-Summary  : X.org ati video driver
+Source1  : https://www.x.org/releases/individual/driver/xf86-video-ati-19.0.1.tar.gz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT
 Requires: xf86-video-ati-data = %{version}-%{release}
@@ -29,6 +29,7 @@ BuildRequires : pkgconfig(xf86driproto)
 BuildRequires : pkgconfig(xorg-macros)
 BuildRequires : pkgconfig(xorg-server)
 BuildRequires : pkgconfig(xproto)
+Patch1: backport-gcc10.patch
 
 %description
 xf86-video-ati - ATI/AMD Radeon video driver for the Xorg X server
@@ -70,31 +71,37 @@ man components for the xf86-video-ati package.
 
 %prep
 %setup -q -n xf86-video-ati-19.0.1
+cd %{_builddir}/xf86-video-ati-19.0.1
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1553364582
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1589809560
+export GCC_IGNORE_WERROR=1
 export CFLAGS="-O3 -g -fopt-info-vec "
 unset LDFLAGS
-export LDFLAGS="${LDFLAGS} -fno-lto"
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1553364582
+export SOURCE_DATE_EPOCH=1589809560
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xf86-video-ati
-cp COPYING %{buildroot}/usr/share/package-licenses/xf86-video-ati/COPYING
+cp %{_builddir}/xf86-video-ati-19.0.1/COPYING %{buildroot}/usr/share/package-licenses/xf86-video-ati/a297a2b3d9f367ccee795c8a4260d8c7f40ab78f
 %make_install
 
 %files
@@ -111,7 +118,7 @@ cp COPYING %{buildroot}/usr/share/package-licenses/xf86-video-ati/COPYING
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/xf86-video-ati/COPYING
+/usr/share/package-licenses/xf86-video-ati/a297a2b3d9f367ccee795c8a4260d8c7f40ab78f
 
 %files man
 %defattr(0644,root,root,0755)
