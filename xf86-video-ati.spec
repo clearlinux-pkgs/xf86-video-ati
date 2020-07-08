@@ -6,7 +6,7 @@
 #
 Name     : xf86-video-ati
 Version  : 19.0.1
-Release  : 41
+Release  : 42
 URL      : https://www.x.org/releases/individual/driver/xf86-video-ati-19.0.1.tar.gz
 Source0  : https://www.x.org/releases/individual/driver/xf86-video-ati-19.0.1.tar.gz
 Source1  : https://www.x.org/releases/individual/driver/xf86-video-ati-19.0.1.tar.gz.sig
