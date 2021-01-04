@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x5A81AF8E6ADBB200 (daenzer@debian.org)
 #
 Name     : xf86-video-ati
-Version  : 19.0.1
-Release  : 49
-URL      : https://www.x.org/releases/individual/driver/xf86-video-ati-19.0.1.tar.gz
-Source0  : https://www.x.org/releases/individual/driver/xf86-video-ati-19.0.1.tar.gz
-Source1  : https://www.x.org/releases/individual/driver/xf86-video-ati-19.0.1.tar.gz.sig
+Version  : 19.1.0
+Release  : 50
+URL      : https://www.x.org/releases/individual/driver/xf86-video-ati-19.1.0.tar.gz
+Source0  : https://www.x.org/releases/individual/driver/xf86-video-ati-19.1.0.tar.gz
+Source1  : https://www.x.org/releases/individual/driver/xf86-video-ati-19.1.0.tar.gz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT
@@ -70,8 +70,8 @@ man components for the xf86-video-ati package.
 
 
 %prep
-%setup -q -n xf86-video-ati-19.0.1
-cd %{_builddir}/xf86-video-ati-19.0.1
+%setup -q -n xf86-video-ati-19.1.0
+cd %{_builddir}/xf86-video-ati-19.1.0
 %patch1 -p1
 
 %build
@@ -79,7 +79,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1589809560
+export SOURCE_DATE_EPOCH=1609782072
 export GCC_IGNORE_WERROR=1
 export CFLAGS="-O3 -g -fopt-info-vec "
 unset LDFLAGS
@@ -95,13 +95,13 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 %{?_smp_mflags} check
+make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1589809560
+export SOURCE_DATE_EPOCH=1609782072
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xf86-video-ati
-cp %{_builddir}/xf86-video-ati-19.0.1/COPYING %{buildroot}/usr/share/package-licenses/xf86-video-ati/a297a2b3d9f367ccee795c8a4260d8c7f40ab78f
+cp %{_builddir}/xf86-video-ati-19.1.0/COPYING %{buildroot}/usr/share/package-licenses/xf86-video-ati/a297a2b3d9f367ccee795c8a4260d8c7f40ab78f
 %make_install
 
 %files
