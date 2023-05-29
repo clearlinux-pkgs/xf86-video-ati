@@ -1,2 +1,8 @@
-Configure miss: whether glamor_glyphs_init is declared
+Configure miss: gcc options needed to detect all undeclared functions
+Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: whether glamor_egl_destroy_textured_pixmap is declared
+Configure miss: whether glamor_egl_destroy_textured_pixmap is declared
+Configure miss: whether glamor_glyphs_init is declared
+Configure miss: whether glamor_glyphs_init is declared
+Configure miss: x86_64-generic-linux-gnu-file
+Configure miss: x86_64-generic-linux-gnu-file
