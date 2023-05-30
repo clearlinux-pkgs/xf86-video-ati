@@ -7,7 +7,7 @@
 #
 Name     : xf86-video-ati
 Version  : 22.0.0
-Release  : 307
+Release  : 308
 URL      : https://www.x.org/releases/individual/driver/xf86-video-ati-22.0.0.tar.gz
 Source0  : https://www.x.org/releases/individual/driver/xf86-video-ati-22.0.0.tar.gz
 Source1  : https://www.x.org/releases/individual/driver/xf86-video-ati-22.0.0.tar.gz.sig
@@ -85,7 +85,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685375064
+export SOURCE_DATE_EPOCH=1685479959
 export GCC_IGNORE_WERROR=1
 export CFLAGS="-O3 -g -fopt-info-vec "
 unset LDFLAGS
@@ -116,7 +116,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1685375064
+export SOURCE_DATE_EPOCH=1685479959
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xf86-video-ati
 cp %{_builddir}/xf86-video-ati-%{version}/COPYING %{buildroot}/usr/share/package-licenses/xf86-video-ati/a297a2b3d9f367ccee795c8a4260d8c7f40ab78f || :
