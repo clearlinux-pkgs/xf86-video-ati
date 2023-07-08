@@ -7,7 +7,7 @@
 #
 Name     : xf86-video-ati
 Version  : 22.0.0
-Release  : 360
+Release  : 361
 URL      : https://www.x.org/releases/individual/driver/xf86-video-ati-22.0.0.tar.gz
 Source0  : https://www.x.org/releases/individual/driver/xf86-video-ati-22.0.0.tar.gz
 Source1  : https://www.x.org/releases/individual/driver/xf86-video-ati-22.0.0.tar.gz.sig
